@@ -1,0 +1,3 @@
+rootProject.name = 'spring-microservice-template'
+include 'post-service'
+include 'timeline-service'
