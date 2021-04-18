@@ -1,0 +1,5 @@
+server:
+  port: 8012
+
+post-service:
+  url: localhost:8011/api/posts
