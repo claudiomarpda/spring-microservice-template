@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.event.EventListener;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,9 +35,16 @@ public class PostServiceApplication {
 @RequestMapping("/api/posts")
 class PostController {
 
+    Environment environment;
+
+    public PostController(Environment environment) {
+        this.environment = environment;
+    }
+
     @GetMapping("/{id}")
     Post findById(@PathVariable Long id) {
         if (posts.containsKey(id)) {
+            posts.get(id).setDescription("server port " + environment.getProperty("server.port"));
             return posts.get(id);
         } else {
             throw new ResourceNotFound("Post with ID " + id + " not found");

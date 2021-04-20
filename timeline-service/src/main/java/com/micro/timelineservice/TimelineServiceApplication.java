@@ -36,10 +36,10 @@ class TimelineController {
     }
 }
 
-@FeignClient(value = "posts", url = "${post-service.url}")
+@FeignClient(name = "post-service")
 interface PostClient {
 
-    @GetMapping("/{postId}")
+    @GetMapping("/api/posts/{postId}")
     Post findById(@PathVariable Long postId);
 }
 

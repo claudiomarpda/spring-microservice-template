@@ -5,8 +5,10 @@ spring:
 server:
   port: 8013
 
-post-service:
-  url: localhost:8011/api/posts
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 
 logging:
   level:
