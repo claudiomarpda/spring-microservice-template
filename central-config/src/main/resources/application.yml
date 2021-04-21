@@ -1,0 +1,12 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: central-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/claudiomarpda/spring-microservice-template-config
+          # uri: file:C:\Users\...\spring-microservice-template-config
