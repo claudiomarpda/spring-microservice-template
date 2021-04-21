@@ -1,3 +1,5 @@
 rootProject.name = 'spring-microservice-template'
 include 'post-service'
 include 'timeline-service'
+include 'discovery-server'
+include 'central-config'
