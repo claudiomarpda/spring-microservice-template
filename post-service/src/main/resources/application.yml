@@ -2,7 +2,7 @@ spring:
   application:
     name: post-service
   config:
-    import: optional:configserver:http://localhost:8888/
+    import: optional:configserver:http://central-config:8888/
   profiles:
     active: dev
 
@@ -14,7 +14,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: ${DISCOVERY_SERVER:http://localhost:8761/eureka}
 
 logging:
   level:
@@ -24,5 +24,4 @@ management:
   endpoints:
     web:
       exposure:
-        include:
-          - refresh
+        include: "*"

@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  discovery-server:
+    container_name: discovery-server
+    image: discovery-server:latest
+    build:
+      context: discovery-server
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+  central-config:
+    container_name: central-config
+    image: central-config:latest
+    build:
+      context: central-config
+      dockerfile: Dockerfile
+    ports:
+      - "8888:8888"
+    depends_on:
+      - discovery-server
+  gateway:
+    container_name: gateway
+    image: gateway:latest
+    build:
+      context: gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8890:8890"
+    environment:
+      - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+    depends_on:
+      - discovery-server
+      - central-config
+  post-service:
+    container_name: post-service
+    image: post-service:latest
+    build:
+      context: post-service
+      dockerfile: Dockerfile
+    ports:
+      - "8011:8011"
+    environment:
+      - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+    depends_on:
+      - discovery-server
+      - central-config
+  timeline-service:
+    container_name: timeline-service
+    image: timeline-service:latest
+    build:
+      context: timeline-service
+      dockerfile: Dockerfile
+    ports:
+      - "8013:8013"
+    environment:
+      - DISCOVERY_SERVER=http://discovery-server:8761/eureka
