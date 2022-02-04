@@ -2,9 +2,9 @@ spring:
   application:
     name: post-service
   config:
-    import: optional:configserver:http://central-config:8888/
+    import: optional:configserver:${CENTRAL_CONFIG}:http://localhost:8888
   profiles:
-    active: dev
+    active: local
 
 server:
   port: 8011
