@@ -9,3 +9,6 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+#    default-zone: ${DISCOVERY_SERVER:http://localhost:8761/eureka} # in case to set the discovery server port
+  instance:
+    lease-renewal-interval-in-seconds: 1
