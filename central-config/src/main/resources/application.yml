@@ -9,4 +9,15 @@ spring:
       server:
         git:
           uri: https://github.com/claudiomarpda/spring-microservice-template-config
-          # uri: file:C:\Users\...\spring-microservice-template-config
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_SERVER:http://localhost:8761/eureka}
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud: debug
+        web: debug
