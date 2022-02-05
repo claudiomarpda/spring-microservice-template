@@ -2,7 +2,7 @@ spring:
   application:
     name: timeline-service
   config:
-    import: optional:configserver:${CENTRAL_CONFIG}:http://localhost:8888
+    import: optional:configserver:${CENTRAL_CONFIG:http://localhost:8888}
   profiles:
     active: local
 

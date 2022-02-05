@@ -16,6 +16,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8888:8888"
+    environment:
+      - DISCOVERY_SERVER=http://discovery-server:8761/eureka
     depends_on:
       - discovery-server
   gateway:
@@ -28,6 +30,7 @@ services:
       - "8890:8890"
     environment:
       - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+      - CENTRAL_CONFIG=http://central-config:8888
     depends_on:
       - discovery-server
       - central-config
@@ -41,6 +44,7 @@ services:
       - "8011:8011"
     environment:
       - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+      - CENTRAL_CONFIG=http://central-config:8888
     depends_on:
       - discovery-server
       - central-config
@@ -54,3 +58,4 @@ services:
       - "8013:8013"
     environment:
       - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+      - CENTRAL_CONFIG=http://central-config:8888
