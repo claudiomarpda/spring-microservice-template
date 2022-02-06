@@ -2,14 +2,22 @@ server:
   port: 8888
 
 spring:
+#  profiles:
+#    active: native
   application:
     name: central-config
   cloud:
     config:
+#      allowOverride: false
+#      overrideNone: true
       server:
+#        native:
+#          searchLocations: file:C:\Users\...\spring-microservice-template-config
+#        search-paths: {application}
         git:
+#        uri: file:C:\Users\..\spring-microservice-template-config
+#          clone-on-start: false
           uri: https://github.com/claudiomarpda/spring-microservice-template-config
-#          uri: file:C:\Users\...\spring-microservice-template-config
 
 eureka:
   client:
@@ -22,9 +30,3 @@ logging:
       springframework:
         cloud: debug
         web: debug
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
