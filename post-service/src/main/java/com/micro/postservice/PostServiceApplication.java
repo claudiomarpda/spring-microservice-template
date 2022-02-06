@@ -53,9 +53,9 @@ class PostController {
         }
     }
 
-    @GetMapping("/myProperty")
-    String getMyProperty() {
-        return environment.getProperty("app.myProperty");
+    @GetMapping
+    String getMyProperty(@RequestParam String key) {
+        return environment.getProperty(key);
     }
 }
 
