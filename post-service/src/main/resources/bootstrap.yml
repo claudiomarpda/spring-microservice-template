@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: post-service
+#  cloud:
+#    config:
+#      discovery:
+#        service-id: discovery-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_SERVER:http://localhost:8761/eureka}
+

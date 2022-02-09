@@ -13,15 +13,13 @@ server:
 
 eureka:
   client:
+#    register-with-eureka: false
+#    fetch-registry: false
     serviceUrl:
       defaultZone: ${DISCOVERY_SERVER:http://localhost:8761/eureka}
 
 logging:
   level:
     root: info
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+    web: debug
+    org.springframework.cloud.config: DEBUG
