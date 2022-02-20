@@ -5,6 +5,13 @@ spring:
     import: optional:configserver:${CENTRAL_CONFIG:http://localhost:8888}
   profiles:
     active: local
+  zipkin:
+    base-url: ${ZIPKIN_SERVER:http://localhost:9411/}
+    enabled: true
+  sleuth:
+    sampler:
+#      percentage: 1.0
+      probability: 1.0
 
 server:
   port: 8011
@@ -23,3 +30,4 @@ logging:
     root: info
     web: debug
     org.springframework.cloud.config: DEBUG
+    java.net: trace

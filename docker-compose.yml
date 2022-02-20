@@ -1,5 +1,10 @@
 version: '3.8'
 services:
+  zipkin-server:
+    container_name: zipkin-server
+    image: openzipkin/zipkin:2.23
+    ports:
+      - "9411:9411"
   discovery-server:
     container_name: discovery-server
     image: discovery-server:latest
@@ -31,9 +36,11 @@ services:
     environment:
       - DISCOVERY_SERVER=http://discovery-server:8761/eureka
       - CENTRAL_CONFIG=http://central-config:8888
+      - ZIPKIN_SERVER=http://zipkin-server:9411/
     depends_on:
       - discovery-server
       - central-config
+      - zipkin-server
   post-service:
     container_name: post-service
     image: post-service:latest
@@ -45,9 +52,11 @@ services:
     environment:
       - DISCOVERY_SERVER=http://discovery-server:8761/eureka
       - CENTRAL_CONFIG=http://central-config:8888
+      - ZIPKIN_SERVER=http://zipkin-server:9411/
     depends_on:
       - discovery-server
       - central-config
+      - zipkin-server
   timeline-service:
     container_name: timeline-service
     image: timeline-service:latest

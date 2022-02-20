@@ -30,6 +30,7 @@ public class PostServiceApplication {
     void populate() {
         posts.put(1L, new Post(1L, "post description"));
     }
+
 }
 
 @RefreshScope
@@ -57,6 +58,8 @@ class PostController {
     String getMyProperty(@RequestParam String key) {
         return environment.getProperty(key);
     }
+
+
 }
 
 @Data

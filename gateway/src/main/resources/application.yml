@@ -3,6 +3,13 @@ spring:
     name: gateway
   config:
     import: optional:configserver:${CENTRAL_CONFIG:http://localhost:8888}
+  zipkin:
+    base-url: ${ZIPKIN_SERVER:http://localhost:9411/}
+    enabled: true
+  sleuth:
+    sampler:
+#      percentage: 1.0
+      probability: 1.0
 
 server:
   port: 8890
@@ -17,3 +24,11 @@ management:
     web:
       exposure:
         include: "*"
+
+logging:
+  level:
+    root: info
+    web: debug
+    org.springframework.cloud.config: DEBUG
+    java.net: trace
+    org.springframework.web.client: trace
