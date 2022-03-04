@@ -12,6 +12,15 @@ spring:
     sampler:
 #      percentage: 1.0
       probability: 1.0
+  cloud:
+    config:
+      fail-fast: true
+      username: username
+      password: password
+  security:
+    user:
+      name: post
+      password: password
 
 server:
   port: 8011
