@@ -50,7 +50,7 @@ services:
     ports:
       - "8011:8011"
     environment:
-      - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+      - DISCOVERY_SERVER=http://netflix:eureka@discovery-server:8761/eureka
       - CENTRAL_CONFIG=http://central-config:8888
       - ZIPKIN_SERVER=http://zipkin-server:9411/
     depends_on:
@@ -66,5 +66,5 @@ services:
     ports:
       - "8013:8013"
     environment:
-      - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+      - DISCOVERY_SERVER=http://netflix:eureka@discovery-server:8761/eureka
       - CENTRAL_CONFIG=http://central-config:8888
