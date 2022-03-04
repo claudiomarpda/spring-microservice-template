@@ -58,6 +58,7 @@ services:
       - discovery-server
       - central-config
       - zipkin-server
+    restart: on-failure
   timeline-service:
     container_name: timeline-service
     image: timeline-service:latest
