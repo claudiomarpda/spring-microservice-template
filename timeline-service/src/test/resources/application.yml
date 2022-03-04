@@ -6,3 +6,9 @@ eureka:
   client:
     register-with-eureka: false
     fetch-registry: false
+
+timeline:
+  client:
+    post:
+      user: post
+      password: password

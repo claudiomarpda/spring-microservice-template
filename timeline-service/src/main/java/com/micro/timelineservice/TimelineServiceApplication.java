@@ -36,7 +36,7 @@ class TimelineController {
     }
 }
 
-@FeignClient(name = "post-service")
+@FeignClient(name = "post-service", configuration = PostClientConfig.class)
 interface PostClient {
 
     @GetMapping("/api/posts/{postId}")
