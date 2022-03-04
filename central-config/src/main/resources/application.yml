@@ -6,6 +6,10 @@ spring:
 #    active: native
   application:
     name: central-config
+  security:
+    user:
+      name: username
+      password: password
   cloud:
     config:
 #      allowOverride: false
@@ -15,7 +19,7 @@ spring:
 #          searchLocations: file:C:\Users\...\spring-microservice-template-config
 #        search-paths: {application}
         git:
-#        uri: file:C:\Users\..\spring-microservice-template-config
+#          uri: file:C:\Users\..\spring-microservice-template-config
 #          clone-on-start: false
           uri: https://github.com/claudiomarpda/spring-microservice-template-config
 
@@ -30,3 +34,9 @@ logging:
       springframework:
         cloud: debug
         web: debug
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
