@@ -23,6 +23,7 @@ services:
       - "8888:8888"
     environment:
       - DISCOVERY_SERVER=http://discovery-server:8761/eureka
+      - ENCRYPT_KEY=KeyThatShouldBeEnvVariableAssigned
     depends_on:
       - discovery-server
   gateway:
