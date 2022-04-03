@@ -1,7 +1,5 @@
 package com.micro.postservice;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -60,13 +58,6 @@ class PostController {
     }
 
 
-}
-
-@Data
-@AllArgsConstructor
-class Post {
-    Long id;
-    String description;
 }
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND)
